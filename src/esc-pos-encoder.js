@@ -1128,7 +1128,7 @@ class EscPosEncoder {
      * @return {object}                  Return the object, for easy chaining commands
      *
      */
-  image(element, width, height, algorithm, threshold) {
+  image(canvas, element, width, height, algorithm, threshold) {
     if (this._embedded) {
       throw new Error('Images are not supported in table cells or boxes');
     }
@@ -1149,7 +1149,7 @@ class EscPosEncoder {
       threshold = 128;
     }
 
-    const canvas = createCanvas(width, height);
+    //const canvas = createCanvas(width, height);
     const context = canvas.getContext('2d');
     context.drawImage(element, 0, 0, width, height);
     let image = context.getImageData(0, 0, width, height);
